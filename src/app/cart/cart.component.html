@@ -1,11 +1,52 @@
-<div class="container">
-  <div class="card">
-    <h5 class="card-title">My Cart</h5>
+<ng-container *ngIf="true">
+  <div class="container">
+    <div class="card-table">
+      <div class="cart-product">
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th>Sl.No</th>
+              <th>Product Name</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Iphone</td>
+              <td>some Image</td>
+              <th>50,000</th>
+              <td>1</td>
+              <td>50,000</td>
+              <td>
+                <button class="btn btn-danger">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-  <div class="center">
-    <img src="" alt="">
-    <h4>your cart is empty!</h4>
-    <h6>Add Item to it nowwwwwwwwwwwww</h6>
-    <a routerLink="/products" routerLinkActive="routerActive" ><button class="btn btn-primary" >Shop Now</button></a>
+</ng-container>
+
+
+<ng-container *ngIf="false">
+  <div class="container">
+    <div class="card">
+      <h5 class="card-title">My Cart</h5>
+
+      <div class="center">
+        <img src="../../assets/tra.jpg" width="50%" alt="" />
+        <h4>Your cart is empty!</h4>
+        <h6>Add Item to it now</h6>
+        <a routerLink="/products" routerLinkActive="routerActive"
+          ><button class="btn btn-primary">Shop Now</button></a>
+      </div>
+    </div>
   </div>
-</div>
+
+</ng-container>
