@@ -1,0 +1,39 @@
+
+<div class="card">
+  <div class="items">
+    <div class="item">
+      <a><img src="../../assets/1.jpg" width="50px" alt="no img"></a>
+      <h6>All Products</h6>
+    </div>
+    <div class="item">
+      <a><img src="../../assets/1.jpg" width="50px" alt="no img"></a>
+      <h6>Eletronics</h6>
+    </div>
+    <div class="item">
+      <a><img src="../../assets/1.jpg" width="50px" alt="no imag"></a>
+      <h6>Fashion</h6>
+    </div>
+    <div class="item">
+      <a><img src="../../assets/1.jpg" width="50px" alt="no imag"></a>
+      <h6>Jewellery</h6>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <ng-container *ngFor="let item of productList">
+      <div class=" product card col-md-3 ">
+        <img src="{{item.image}}" alt="">
+        <h5 style="white-space:nowrap;overflow:hidden; text-overflow:ellipsis;max-width:100ch">{{item.title}}</h5>
+        <p style="white-space:nowrap;overflow:hidden; text-overflow:ellipsis;max-width:100ch">{{item.description}}</p>
+        <p><strong>price:</strong>${{item.price}}</p>
+        <button class="btn btn-primary">Add to Cart</button>
+        </div>
+    </ng-container>
+
+
+
+  </div>
+</div>
+
