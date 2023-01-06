@@ -8,6 +8,7 @@ export class CartService {
   cartItemList:any=[]
   productList = new BehaviorSubject<any>([]);
 
+
   constructor() { }
   getProducts(){
     return this.productList.asObservable();
@@ -41,6 +42,14 @@ export class CartService {
     this.productList.next(this.cartItemList)
 
   }
+
+  mycart:any=[]
+
+  addtocartAll(mydata:any){
+    this.mycart.push(mydata)
+  }
+
+
 
 
 }

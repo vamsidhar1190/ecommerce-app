@@ -1,5 +1,5 @@
-<ng-container *ngIf="true">
-  <div class="container">
+<ng-container *ngIf="cartItemsArr.length != 0">
+  <div class="container ">
     <div class="card-table">
       <div class="cart-product">
         <table class="table table-responsive">
@@ -7,9 +7,10 @@
             <tr>
               <th>Sl.No</th>
               <th>Product Name</th>
+              <th>Image</th>
               <th>Description</th>
-              <th>Price</th>
               <th>Quantity</th>
+              <th>price</th>
               <th>Total</th>
               <th>Action</th>
             </tr>
@@ -19,14 +20,20 @@
               <td>{{i+1}}</td>
               <td>{{item.title}}</td>
               <td><img style="width: 120px;" src="{{item.image}}" alt=""></td>
-              <th>{{item.description}}</th>
-              <td>{{item.quantity}}</td>
-              <td>{{item.price}}</td>
-              <td>{{item.total}}</td>
+              <td style="width: 25%;" >{{item.description}}</td>
+              <td><button (click)="Increase(item)">+</button>{{item.quantity}}<button (click)="Decrease(item)">-</button></td>
+              <td style="width: 12%;">{{[item.price]}}</td>
+              <td style="width: 12%;">{{[item.quantity*item.price]}}</td>
               <td>
                 <button class="btn btn-danger" (click)="removeItem(i)">Delete</button>
               </td>
             </tr>
+            <tr>
+              <td colspan="4"></td>
+              <td><button class="btn btn-danger" (click)="emptycart()">Empty</button></td>
+              <td><button class="btn btn-primary">ShopNow</button></td>
+              <td><button class="btn btn-success">CheckOut</button></td>
+           </tr>
           </tbody>
         </table>
       </div>
@@ -35,7 +42,7 @@
 </ng-container>
 
 
-<ng-container *ngIf="false">
+<ng-container *ngIf="cartItemsArr.length ===0">
   <div class="container">
     <div class="card">
       <h5 class="card-title">My Cart</h5>

@@ -26,9 +26,7 @@ ngOnInit(): void{
 }
 addtocart(item:any){
   // this.cartservice.addtocart(item);
-  this.cartArr.push(item)
-  localStorage.setItem('cartItems',JSON.stringify(this.cartArr))
-
+  this.cartservice.addtocartAll(item)
 
 }
 
