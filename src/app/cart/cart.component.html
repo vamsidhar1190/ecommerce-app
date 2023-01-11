@@ -21,7 +21,7 @@
               <td>{{item.title}}</td>
               <td><img style="width: 120px;" src="{{item.image}}" alt=""></td>
               <td style="width: 25%;" >{{item.description}}</td>
-              <td><button (click)="Increase(item)">+</button>{{item.quantity}}<button (click)="Decrease(item)">-</button></td>
+              <td><button (click)="Increase(item,i)">+</button>{{item.quantity}}<button (click)="Decrease(item,i)">-</button></td>
               <td style="width: 12%;">{{[item.price]}}</td>
               <td style="width: 12%;">{{[item.quantity*item.price]}}</td>
               <td>
@@ -30,10 +30,10 @@
             </tr>
             <tr>
               <td colspan="4"></td>
-              <td><button class="btn btn-primary">ShopNow</button></td>
+              <td><button class="btn btn-primary" routerLink="/products">ShopNow</button></td>
               <td><button class="btn btn-success">CheckOut</button></td>
            </tr>
-           <td>Grand total:{{total}}</td>
+           <td class="right">Grand Total:{{totalprice}}</td>
 
 
           </tbody>

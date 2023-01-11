@@ -23,6 +23,7 @@ import { FormsModule } from '@angular/forms';
 
 
 
+
 const route:Routes=[
   {
     path:'',component:HomeComponent
