@@ -25,15 +25,17 @@
               <td style="width: 12%;">{{[item.price]}}</td>
               <td style="width: 12%;">{{[item.quantity*item.price]}}</td>
               <td>
-                <button class="btn btn-danger" (click)="removeItem(i)">Delete</button>
-              </td>
+                <button class="btn btn-danger" (click)="removeItem(i)">Delete</button></td><br>
+
             </tr>
             <tr>
               <td colspan="4"></td>
-              <td><button class="btn btn-danger" (click)="emptycart()">Empty</button></td>
               <td><button class="btn btn-primary">ShopNow</button></td>
               <td><button class="btn btn-success">CheckOut</button></td>
            </tr>
+           <td>Grand total:{{total}}</td>
+
+
           </tbody>
         </table>
       </div>

@@ -1,0 +1,13 @@
+.closeing{
+display: flex;
+justify-content: center;
+gap: 40px;
+padding-top: 50px;
+}
+.close{
+ width: 300px;
+
+}
+.open{
+  width: 300px;
+}

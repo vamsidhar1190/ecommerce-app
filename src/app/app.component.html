@@ -1,15 +1,15 @@
 <div class="navbar">
   <div class="search">
-    <img src="../assets/1.jpg" width="50px" alt="">
-    <input type="text" placeholder="Search">
+    <a routerLink="/home" routerLinkActive="routerActive" ><img src="../assets/ecommerce web.png" width="60px"></a>
+    <input type="text" placeholder="Search" [(ngModel)]="searchTerm" (keyup)='search($event)'>
   </div>
   <div class="components">
-    <a routerLink="/home" routerLinkActive="routerActive">Home</a>
-    <a routerLink="/products" routerLinkActive="routerActive">Products</a>
-    <a routerLink="/login" routerLinkActive="routerActive">Login</a>
-    <a routerLink="/signup" routerLinkActive="routerActive">SignUp</a>
-    <a routerLink="/logout" routerLinkActive="routerActive">LogOut</a>
-    <a routerLink="/cart" routerLinkActive="routerActive">Cart</a>
+    <a routerLink="/home" routerLinkActive="routerActive" >Home</a>
+    <a routerLink="/products" routerLinkActive="routerActive" [hidden]="showdetails">Products</a>
+    <a routerLink="/login" routerLinkActive="routerActive" [hidden]="dontshowdetails">Login</a>
+    <a routerLink="/signup" routerLinkActive="routerActive" [hidden]='dontshowdetails'>SignUp</a>
+    <a routerLink="/logout" routerLinkActive="routerActive" [hidden]="showdetails">LogOut</a>
+    <a routerLink="/cart" routerLinkActive="routerActive" [hidden]="showdetails">Cart</a>
 
   </div>
 </div>

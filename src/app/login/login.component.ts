@@ -27,6 +27,9 @@ export class LoginComponent implements OnInit {
   getlocalstorage: any;
   x: any;
   passwords: any;
+  loginvalue:any
+
+
   ngOnInit(): void {
     this.getlocalstorage = localStorage.getItem('Signupdata');
     console.log(this.getlocalstorage);
@@ -51,18 +54,22 @@ export class LoginComponent implements OnInit {
             icon: 'success',
             title: 'login successfully',
           });
+          this.loginvalue=1
+          sessionStorage.setItem('loginvalue',this.loginvalue)
+
         }
         else {
           Swal.fire({
             icon: 'warning',
-            title: 'password kottu ra',
+            title: 'Enter Correct password',
           });
+
         }
       } else {
-        // Swal.fire({
-        //   icon: 'error',
-        //   title: 'username incorrect',
-        // });
+        Swal.fire({
+          icon: 'error',
+          title: 'username incorrect',
+        });
       }
     }
   }

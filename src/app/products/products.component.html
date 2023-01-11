@@ -2,19 +2,19 @@
 <div class="card">
   <div class="items">
     <div class="item">
-      <a><img src="../../assets/1.jpg" width="50px" alt="no img"></a>
+      <a ><img src="../../assets/1.jpg" width="50px" alt="no img"></a>
       <h6>All Products</h6>
     </div>
     <div class="item">
-      <a><img src="../../assets/1.jpg" width="50px" alt="no img"></a>
+      <a><img src="../../assets/eletronics" width="68px" style="border-radius: 100px;" alt="no img"></a>
       <h6>Eletronics</h6>
     </div>
     <div class="item">
-      <a><img src="../../assets/1.jpg" width="50px" alt="no imag"></a>
+      <a><img src="../../assets/fashion.jpg" width="50px" alt="no imag"></a>
       <h6>Fashion</h6>
     </div>
     <div class="item">
-      <a><img src="../../assets/1.jpg" width="50px" alt="no imag"></a>
+      <a><img src="../../assets/jewellery.jpeg" width="50px" alt="no imag"></a>
       <h6>Jewellery</h6>
     </div>
   </div>
@@ -22,7 +22,7 @@
 
 <div class="container">
   <div class="row">
-    <ng-container *ngFor="let item of productList">
+    <ng-container *ngFor="let item of productList | filter:searchkey:'title'">
       <div class=" product card col-md-3 ">
         <img src="{{item.image}}" alt="">
         <h5 style="white-space:nowrap;overflow:hidden; text-overflow:ellipsis;max-width:100ch">{{item.title}}</h5>

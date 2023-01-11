@@ -12,6 +12,8 @@ export class ProductsComponent implements OnInit{
 
   public productList :any ;
   public cartArr:any=[]
+  searchkey:string=" ";
+
 
   constructor (private api:ApiService, private cartservice: CartService) { }
 ngOnInit(): void{
@@ -23,11 +25,14 @@ ngOnInit(): void{
 
     })
   })
+  this.cartservice.search.subscribe((val:any)=>{
+    this.searchkey=val
+  })
+
 }
 addtocart(item:any){
   // this.cartservice.addtocart(item);
   this.cartservice.addtocartAll(item)
-
 }
 
 }

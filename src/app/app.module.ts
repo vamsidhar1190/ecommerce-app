@@ -15,6 +15,11 @@ import { ProductsComponent } from './products/products.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from "@angular/common/http";
 import { CartComponent } from './cart/cart.component';
+import { FilterPipe } from './filter.pipe';
+import { FormsModule } from '@angular/forms';
+
+
+
 
 
 
@@ -53,7 +58,8 @@ const route:Routes=[
     LogoutComponent,
     HomeComponent,
     ProductsComponent,
-    CartComponent
+    CartComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -62,7 +68,9 @@ const route:Routes=[
     ReactiveFormsModule,
     SweetAlert2Module,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
+
 
 
   ],

@@ -1,5 +1,7 @@
+import { ProductsComponent } from './../products/products.component';
 import { CartService } from './../cart.service';
 import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-cart',
@@ -11,7 +13,8 @@ export class CartComponent {
   product: any=[]
   grandTotal:any=0
   totalItem: number =0
-  cartItemsArr:any
+  cartItemsArr:any=[]
+  total:any= []
 
   constructor (private cartService:CartService) { }
 
@@ -26,6 +29,8 @@ export class CartComponent {
     // this.cartItemsArr=JSON.parse(this.lsJson)
 
     this.cartItemsArr=this.cartService.mycart
+    this.totalcart();
+
 
   }
   removeItem(item:number){
@@ -58,11 +63,13 @@ export class CartComponent {
       item.quantity -=1
     }
   }
+  totalcart(){
+    this.total=this.cartItemsArr.reduce(function(acc:any,val:any){
+      return acc+(val.price *val.quantity )
+      console.log(val.price *val.quantity);
 
 
+    },0)
 
-
-
-
-
+  }
 }
