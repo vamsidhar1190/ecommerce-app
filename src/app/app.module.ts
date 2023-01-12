@@ -17,12 +17,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { CartComponent } from './cart/cart.component';
 import { FilterPipe } from './filter.pipe';
 import { FormsModule } from '@angular/forms';
-
-
-
-
-
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const route:Routes=[
   {
@@ -60,7 +55,8 @@ const route:Routes=[
     HomeComponent,
     ProductsComponent,
     CartComponent,
-    FilterPipe
+    FilterPipe,
+
   ],
   imports: [
     BrowserModule,
@@ -70,10 +66,8 @@ const route:Routes=[
     SweetAlert2Module,
     NgbModule,
     HttpClientModule,
-    FormsModule
-
-
-
+    FormsModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

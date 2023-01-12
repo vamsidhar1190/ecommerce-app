@@ -3,6 +3,8 @@ import { CartService } from './../cart.service';
 import { Component,OnInit,DoCheck } from '@angular/core';
 
 
+
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -18,6 +20,9 @@ export class CartComponent implements OnInit,DoCheck{
   cartArr=[]
   cartItemPrice:any=[]
   totalprice:number=0
+
+  // fonts
+
   constructor (private cartService:CartService) { }
 
   ngOnInit(): void {

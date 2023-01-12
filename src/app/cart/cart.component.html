@@ -1,3 +1,6 @@
+<head>
+  <script src="https://kit.fontawesome.com/ca3549a625.js" crossorigin="anonymous"></script>
+</head>
 <ng-container *ngIf="cartItemsArr.length != 0">
   <div class="container ">
     <div class="card-table">
@@ -25,7 +28,7 @@
               <td style="width: 12%;">{{[item.price]}}</td>
               <td style="width: 12%;">{{[item.quantity*item.price]}}</td>
               <td>
-                <button class="btn btn-danger" (click)="removeItem(i)">Delete</button></td><br>
+                <button class="btn btn-danger" (click)="removeItem(i)">DEL</button></td><br>
 
             </tr>
             <tr>
@@ -34,12 +37,12 @@
               <td><button class="btn btn-success">CheckOut</button></td>
            </tr>
            <td class="right">Grand Total:{{totalprice}}</td>
-
-
           </tbody>
         </table>
       </div>
     </div>
+    <i class="fas fa-barcode"></i>
+
   </div>
 </ng-container>
 
