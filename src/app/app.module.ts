@@ -18,6 +18,7 @@ import { CartComponent } from './cart/cart.component';
 import { FilterPipe } from './filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MoreProductsComponent } from './more-products/more-products.component';
 
 const route:Routes=[
   {
@@ -39,6 +40,9 @@ const route:Routes=[
     path:'cart', component:CartComponent
   },
   {
+    path:'moreProducts', component:MoreProductsComponent
+  },
+  {
     path:'**', component:HomeComponent
   }
 
@@ -56,6 +60,7 @@ const route:Routes=[
     ProductsComponent,
     CartComponent,
     FilterPipe,
+    MoreProductsComponent,
 
   ],
   imports: [
