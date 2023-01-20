@@ -23,7 +23,10 @@ export class CartComponent implements OnInit,DoCheck{
 
   // fonts
 
-  constructor (private cartService:CartService) { }
+  constructor (private cartService:CartService) {
+    this.cartItemsArr=this.cartService.priceArr;
+
+  }
 
   ngOnInit(): void {
     // // this.cartService.getProducts().subscribe(res=>{
@@ -35,11 +38,12 @@ export class CartComponent implements OnInit,DoCheck{
     // this.lsJson=localStorage.getItem('cartItems')
     // this.cartItemsArr=JSON.parse(this.lsJson)
 
-    this.cartItemsArr=this.cartService.mycart
-    this.totalcart();
-    this.cartArr=this.cartService.cartItemList
-    console.log(this.cartArr);
-    this.cartItemPrice=this.cartArr.map((each:any)=>Number(`${each.price}`))
+    console.log(this.cartItemsArr);
+
+    // this.totalcart();
+    // this.cartArr=this.cartService.cartItemList
+    // console.log(this.cartArr);
+    this.cartItemPrice=this.cartItemsArr.map((each:any)=>Number(`${each.price}`))
     console.log(this.cartItemPrice);
 
   }
@@ -47,21 +51,26 @@ export class CartComponent implements OnInit,DoCheck{
     //Called every time that the input properties of a component or a directive are checked. Use it to extend change detection by performing a custom check.
     //Add 'implements DoCheck' to the class.
 
-    this.totalprice=this.cartItemPrice.reduce((val:number,price:number)=>(
-     val+price
+    this.totalprice=this.cartItemPrice.reduce((x:number,y:number)=>(
+     x+y
     ),0)
 
   }
   removeItem(item:number){
     // this.cartService.removeCartItem(item)
     this.cartItemsArr.splice(item,1)
+    console.log(this.cartItemsArr);
+    this.cartItemPrice.splice(item,1)
+    console.log(this.cartItemPrice);
+
+
     // this.newlsdata=JSON.stringify(this.cartItemsArr)
     // localStorage.setItem('cartItems',this.newlsdata)
-    this.totalprice=this.cartItemPrice.splice(item)
+    // this.totalprice=this.cartItemPrice.splice(item)
   }
   emptycart(){
     this.cartService.removeAll()
-    console.log(this.emptycart);
+    // console.log(this.emptycart);
 
   }
 
@@ -72,10 +81,10 @@ export class CartComponent implements OnInit,DoCheck{
     // item.quantity = item.quantity +1
     if(item.quantity!=5){
       item.quantity+=1
-      console.log(item);
+      // console.log(item);
 
       this.cartItemPrice[index]=item.price*item.quantity
-      console.log(this.cartItemPrice);
+      // console.log(this.cartItemPrice);
 
     }
   }
@@ -84,7 +93,7 @@ export class CartComponent implements OnInit,DoCheck{
     if(item.quantity !=1){
       item.quantity -=1
       this.cartItemPrice[index]=item.price*item.quantity
-      console.log(this.cartItemPrice);
+      // console.log(this.cartItemPrice);
 
 
     }

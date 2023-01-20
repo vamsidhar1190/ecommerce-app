@@ -18,11 +18,12 @@ export class CartService {
    this.cartItemList.push(product);
     this.productList.next(product)
   }
+  priceArr:any=[]
   addtocart(product:any){
-    this.cartItemList.push(product)
+    this.priceArr.push(product)
     this.productList.next(this.cartItemList)
     this.getTotalprice();
-    console.log(this.cartItemList);
+    console.log(this.priceArr);
 
   }
   getTotalprice(){
