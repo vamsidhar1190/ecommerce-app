@@ -1,0 +1,21 @@
+.form{
+    display: flex;
+    width: 50%;
+    /* text-align: center; */
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 25%;
+    background-color: azure;    
+}
+.form input{
+    padding-bottom: 10px;
+    background-color: aqua;
+}
+.form textarea{
+    background-color: aqua;
+}
+button{
+    justify-content: center;
+    display: flex;
+    margin-left: 40%;
+}
