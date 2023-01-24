@@ -23,7 +23,7 @@
               <td>{{i+1}}</td>
               <td>{{item.title}}</td>
               <td><img style="width: 120px;" src="{{item.image}}" alt=""></td>
-              <!-- <td style="width: 25%;" >{{item.description}}</td> -->
+              <td style="width: 25%;" >{{item.description}}</td>
               <td><button (click)="Increase(item,i)"><i class="fa-solid fa-plus"></i></button>
                 {{item.quantity}}
                 <button (click)="Decrease(item,i)"><i class="fa-solid fa-minus"></i></button></td>
@@ -44,8 +44,7 @@
       </div>
     </div>
     <i class="fas fa-barcode"></i>
-
-  </div>
+</div>
 </ng-container>
 
 

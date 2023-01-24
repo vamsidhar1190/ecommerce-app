@@ -29,20 +29,10 @@ export class CartComponent implements OnInit,DoCheck{
   }
 
   ngOnInit(): void {
-    // // this.cartService.getProducts().subscribe(res=>{
-    // //   this.product =res;
-    // //   console.log(this.product);
 
-    // //   this.grandTotal=this.cartService.getTotalprice()
-    // // })
-    // this.lsJson=localStorage.getItem('cartItems')
-    // this.cartItemsArr=JSON.parse(this.lsJson)
 
     console.log(this.cartItemsArr);
 
-    // this.totalcart();
-    // this.cartArr=this.cartService.cartItemList
-    // console.log(this.cartArr);
     this.cartItemPrice=this.cartItemsArr.map((each:any)=>Number(`${each.price}`))
     console.log(this.cartItemPrice);
 
@@ -63,22 +53,16 @@ export class CartComponent implements OnInit,DoCheck{
     this.cartItemPrice.splice(item,1)
     console.log(this.cartItemPrice);
 
-
-    // this.newlsdata=JSON.stringify(this.cartItemsArr)
-    // localStorage.setItem('cartItems',this.newlsdata)
-    // this.totalprice=this.cartItemPrice.splice(item)
   }
   emptycart(){
     this.cartService.removeAll()
-    // console.log(this.emptycart);
+
 
   }
-
   Increase(item:any,index:number){
 
 
-    // console.log(item.quantity);
-    // item.quantity = item.quantity +1
+
     if(item.quantity!=5){
       item.quantity+=1
       // console.log(item);
@@ -98,6 +82,5 @@ export class CartComponent implements OnInit,DoCheck{
 
     }
   }
-  totalcart(){
-  }
+
 }

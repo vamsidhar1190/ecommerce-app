@@ -1,38 +1,59 @@
 <form action="" [formGroup]="testform"><br>
   <div class="form">
-  Product Name:-<input type="text" placeholder="enter the Product name" formControlName="pName" name="Pro_name" ><br>
-  Product price:-<input type="text" placeholder="enter the Product price" formControlName="pPrice" name="Pro_price" ><br>
-  Product color:-<input type="text" placeholder="enter the color" formControlName="pColor" name="Pro_color" ><br>
-  Product category:-<input type="text" placeholder="enter the category" formControlName="pCategory" name="Pro_category" ><br>
+  Product Name:-<input type="text" placeholder="enter the Product name" formControlName="title" name="Pro_name" ><br>
+  Product quantity:-<input type="number" placeholder="enter the Product price" formControlName="quantity" name="Pro_price" ><br>
+  Product price:-<input type="number" placeholder="enter the color" formControlName="price" name="Pro_color" ><br>
+  Product category:-<input type="text" placeholder="enter the category" formControlName="category" name="Pro_category" ><br>
 
-  Product description:-<textarea input type="text" placeholder="enter the description" formControlName="pDescription" name="Pro_description"></textarea><br>
-  Product Image:-<input type="text" placeholder="enter the Product Url" formControlName="pImage" name="Pro_Image" ><br>
+  Product description:-<textarea input type="text" placeholder="enter the description" formControlName="description" name="Pro_description"></textarea><br>
+  Product Image:-<input type="text" placeholder="enter the Product Url" formControlName="image" name="Pro_Image" ><br>
 </div>
-<button (click)="submit(testform)">Add to product</button>
+<button (click)="addproduct(testform)">Add to product</button>
 
 </form>
 
 
 
+<ng-container *ngIf="myLsData.length != 0">
+  <div class="container ">
+    <div class="card-table">
+      <div class="cart-product">
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th>Sl.No</th>
+              <th>Product Name</th>
+              <th>Image</th>
+              <th>Description</th>
+              <th>Quantity</th>
+              <th>price</th>
+              <th>Total</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pro of myLsData; let i =index">
+              <td>{{i+1}}</td>
+              <td>{{pro.title}}</td>
+              <td><img style="width: 120px;" src="{{pro.image}}" alt=""></td>
+              <td style="width: 25%;" >{{pro.description}}</td>
+              <!-- <td><button (click)="Increase(item,i)"><i class="fa-solid fa-plus"></i></button> -->
+                {{pro.quantity}}
+                <!-- <button (click)="Decrease(item,i)"><i class="fa-solid fa-minus"></i></button></td> -->
+              <td style="width: 12%;">{{[pro.price]}}</td>
+              <td style="width: 12%;">{{[pro.quantity*pro.price]}}</td>
+              <td>
+                <button class="btn btn-danger" (click)="removeitem(i)">DEL</button></td><br>
+                <td><button class="btn btn-success" (click)="addtocart(pro,i)">Cart</button></td>
 
-<div class="container">
-    <div *ngFor="let pro of myLsData; let i=index">
-      Product:<b>{{pro.pName}}</b>  <br>
-      <p>Price: <b> {{pro.pPrice}} </b> </p>
-      <p>Category:  <b> {{pro.pCategory}}  </b> </p>
-      <p>Description:<b> {{pro.pDescription}} </b> </p>
-      Image:<img src={{pro.pImage}} alt="">
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-</div>
-<!-- 
-<div>
-  <div *ngFor="let item of myLsData",let i="index">
-    item:{{item.pName}}
-    {{item.pPrice}} 
-    {{item.pColor}}
-    {{item.pCategory}}
-    {{item.pDescription}}
-    <img src={{item.pImage}} alt="">
+    <i class="fas fa-barcode"></i>
 
   </div>
-</div> -->
+</ng-container>
+

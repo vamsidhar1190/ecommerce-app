@@ -1,14 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,DoCheck } from '@angular/core';
 // import { Validators } from '@angular/forms';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CartService } from './../cart.service';
+import { ApiService } from './../api.service';
 
 
 @Component({
   selector: 'app-more-products',
   templateUrl: './more-products.component.html',
   styleUrls: ['./more-products.component.css']
+
 })
-export class MoreProductsComponent implements OnInit {
+
+
+export class MoreProductsComponent implements OnInit, DoCheck{
+
+
 
   lsData:any=[]
   ProductData:any=[]
@@ -16,65 +23,90 @@ export class MoreProductsComponent implements OnInit {
   getdata:any=[]
   Product_Details: any=[];
   newdata:any=[]
- 
+
 
   myLsData:any=[]
-  constructor(){
+  constructor(private api:ApiService, private cartservice: CartService){
+
     this.getdata=localStorage.getItem('Product_Details')
     this.myLsData=JSON.parse(this.getdata)
-    
+
+
     console.log(this.myLsData);
-    this.myLsData.push(this.newdata)
-    
-    // if(this.getdata === null){
-    //   this.Product_Details=[];
-    // }else{
-    //   this.Product_Details=JSON.parse(this.getdata)
-    // }
-    // return this.Product_Details
   }
-  
+
   ngOnInit(): void {
+    // console.log('ng onoit vamsi');
 
-    // this.lsData=localStorage.getItem('Product_Details')
-    // console.log(this.lsData); 
-    this.lsData=localStorage.getItem('Product_Details')    
+    this.lsData=localStorage.getItem('Product_Details')
 
   }
+ngDoCheck(): void {
+
+
+  this.getdata=localStorage.getItem('Product_Details')
+  this.myLsData=JSON.parse(this.getdata)
+}
+
 
   testform= new FormGroup ({
-    pName:new FormControl(),
-    pPrice:new FormControl(),
-    pColor:new FormControl(),
-    pCategory:new FormControl(),
-    pDescription:new FormControl(),
-    pImage:new FormControl()
+    title:new FormControl(),
+    quantity:new FormControl(),
+    price:new FormControl(),
+    category:new FormControl(),
+    description:new FormControl(),
+    image:new FormControl()
   })
-  get pName() {
-    return this.testform.get('pName')
+  get title() {
+    return this.testform.get('title')
   }
-  get pPrice() {
-    return this.testform.get('pPrice')
+  get quantity() {
+    return this.testform.get('quantity')
   }
-  get pColor() {
-    return this.testform.get('pColor')
+  get price() {
+    return this.testform.get('price')
   }
-  get pCategory() {
-    return this.testform.get('pCategory')
+  get category() {
+    return this.testform.get('category')
   }
-  get pImage() {
-    return this.testform.get('pName')
+  get description() {
+    return this.testform.get('description')
   }
-  
+  get image(){
+    return this.testform.get('image')
+  }
 
-  submit(data:any){
-    // console.log(data);
+
+  addproduct(data:any){
+    // let newprod={
+    //   category:
+    //   description:
+    //   image:
+    //   price:
+    //   title:
+    //   total:
+    // }
+    console.log(this.price?.value);
     console.log(data.value);
     this.lsObj=data.value;
     this.ProductData.push(this.lsObj)
     localStorage.setItem('Product_Details',JSON.stringify(this.ProductData))
-    // window.location.reload()
+}
+removeitem(index:number){
+  console.log(this.myLsData[index]);
 
-  }
+  this.myLsData.splice(index,1)
+  localStorage.setItem('Product_Details',JSON.stringify(this.myLsData))
+
+}
+
+addtocart(pro:any,index:number){
+  // this.cartservice.addtocart(item);
+  this.cartservice.addtocartAll(pro)
+  console.log(this.myLsData[index]);
+  this.Product_Details=this.myLsData[index]
+  this.cartservice.addtocart(this.Product_Details)
+}
+
 
 }
