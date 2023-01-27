@@ -1,16 +1,32 @@
-<form action="" [formGroup]="testform"><br>
-  <div class="form">
-  Product Name:-<input type="text" placeholder="enter the Product name" formControlName="title" name="Pro_name" ><br>
-  Product quantity:-<input type="number" placeholder="enter the Product price" formControlName="quantity" name="Pro_price" ><br>
-  Product price:-<input type="number" placeholder="enter the color" formControlName="price" name="Pro_color" ><br>
-  Product category:-<input type="text" placeholder="enter the category" formControlName="category" name="Pro_category" ><br>
 
-  Product description:-<textarea input type="text" placeholder="enter the description" formControlName="description" name="Pro_description"></textarea><br>
-  Product Image:-<input type="text" placeholder="enter the Product Url" formControlName="image" name="Pro_Image" ><br>
+<div class="products">
+  <form action="" [formGroup]="testform" class="d-flex justify-content-center align-items-center"><br>
+  <div class="form" >
+  Product Name:-<input type="text" class="form-control" placeholder="Enter the Product name" formControlName="title" name="Pro_name" ><br>
+  Product quantity:-<input type="number"class="form-control"  placeholder="Enter the Product price" formControlName="quantity" name="Pro_price" ><br>
+  Product price:-<input type="number" class="form-control" placeholder="Enter the color" formControlName="price" name="Pro_color" ><br>
+  Product category:-<input type="text" class="form-control" placeholder="Enter the category" formControlName="category" name="Pro_category" ><br>
+
+  Product description:-<textarea input type="text" class="form-control" placeholder="Enter the description" formControlName="description" name="Pro_description"></textarea><br>
+  <div *ngFor="let group of addingNewInput.controls; let i=index" formArrayName="image">
+    <div [formGroupName]="i">
+        Image Url<input type="text" class="form-control " placeholder="Entrer url here" formControlName="urls">
+        <span> <button class="btn btn-primary"*ngIf="i>0" class="btn btn-danger float-end mb-2" (click)="removingInput(i)"> remove </button> </span>
+
+
+      </div>
+  </div>
+  <div class="addurl">
+    <button class="btn btn-primary addurl " (click)="forNewInput()"> Add Url</button>
+  </div>
 </div>
-<button (click)="addproduct(testform)">Add to product</button>
+
+
 
 </form>
+<div class="addtoproduct">
+<button class="btn btn-primary" (click)="addproduct(testform)">Add to product</button>
+</div>
 
 
 
@@ -35,7 +51,8 @@
             <tr *ngFor="let pro of myLsData; let i =index">
               <td>{{i+1}}</td>
               <td>{{pro.title}}</td>
-              <td><img style="width: 120px;" src="{{pro.image}}" alt=""></td>
+              <td><img style="width: 120px;" src="{{pro.image[0].urls}}" alt=""
+                data-bs-toogle="modal" data-bs-target="#myCarousel" (click)="CarouselPopup(myCarousel,i)"> </td>
               <td style="width: 25%;" >{{pro.description}}</td>
               <!-- <td><button (click)="Increase(item,i)"><i class="fa-solid fa-plus"></i></button> -->
                 {{pro.quantity}}
@@ -56,4 +73,72 @@
 
   </div>
 </ng-container>
+<!-- carousal -->
+<ng-template #myCarousel let-modal>
 
+<ngb-carousel *ngIf="carouselImgsArr">
+
+	<ng-template ngbSlide>
+    <!-- <div *ngFor="let image of carouselImgsArr"> -->
+		<div class="picsum-img-wrapper">
+			<img style="width: 100%;" src={{carouselImgsArr[0].urls}} alt="Random first slide" />
+  	</div>
+		<div class="carousel-caption">
+
+		</div>
+
+	</ng-template>
+  <ng-template ngbSlide *ngIf="carouselImgsArr[1]">
+
+  <div class="picsum-img-wrapper">
+    <img style="width: 100%;" src={{carouselImgsArr[1].urls}} alt="Random first slide" />
+  </div>
+  <div class="carousel-caption">
+
+
+  </div>
+
+</ng-template>
+<ng-template ngbSlide *ngIf="carouselImgsArr[2]">
+
+  <div class="picsum-img-wrapper">
+    <img style="width: 100%;" src={{carouselImgsArr[2].urls}} alt="Random first slide" />
+  </div>
+  <div class="carousel-caption">
+
+  </div>
+
+</ng-template>
+<ng-template ngbSlide *ngIf="carouselImgsArr[3]">
+
+  <div class="picsum-img-wrapper">
+    <img style="width: 100%;" src={{carouselImgsArr[3].urls}} alt="Random first slide" />
+  </div>
+  <div class="carousel-caption">
+
+  </div>
+
+</ng-template>
+
+  <!-- <ng-template ngbSlide>
+		<div class="picsum-img-wrapper">
+			<img style="width: 100%;" src={{carouselImgsArr[1].urls}} alt="Random first slide" />
+  	</div>
+		<div class="carousel-caption">
+			<h3>First slide label</h3>
+			<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+		</div>
+	</ng-template>
+  	<ng-template ngbSlide>
+		<div class="picsum-img-wrapper">
+			<img style="width: 100%;" src={{carouselImgsArr[2].urls}} alt="Random first slide" />
+  	</div>
+		<div class="carousel-caption">
+			<h3>First slide label</h3>
+			<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+		</div>
+	</ng-template> -->
+
+</ngb-carousel>
+</ng-template>
+</div>

@@ -1,18 +1,23 @@
+.products{
+  background-color: cadetblue;
+}
+
 .form{
     display: flex;
-    width: 50%;
+    width: 40%;
     /* text-align: center; */
     justify-content: center;
     flex-direction: column;
-    margin-left: 25%;
-    background-color: azure;
+    /* margin-left: 5%; */
+    color: white;
+
 }
 .form input{
     padding-bottom: 10px;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 .form textarea{
-    background-color: aqua;
+    background-color: ;
 }
 button{
     justify-content: center;
@@ -31,4 +36,19 @@ button{
 .table table-responsive{
   justify-content: center;
   text-align: center;
+}
+.addurl{
+  margin-top: 10px;
+  flex-direction: row;
+}
+.addproduct{
+  margin-top: 20px;
+  justify-content: center;
+  text-align: center;
+}
+.addtoproduct{
+  justify-content: center;
+  text-align: center;
+  margin-left: 7%;
+  margin-top: 10px;
 }
