@@ -3,7 +3,7 @@
   <form action="" [formGroup]="testform" class="d-flex justify-content-center align-items-center"><br>
   <div class="form" >
   Product Name:-<input type="text" class="form-control" placeholder="Enter the Product name" formControlName="title" name="Pro_name" ><br>
-  Product quantity:-<input type="number"class="form-control"  placeholder="Enter the Product price" formControlName="quantity" name="Pro_price" ><br>
+  <!-- Product quantity:-<input type="number"class="form-control"  placeholder="Enter the Product price" formControlName="quantity" name="Pro_price" ><br> -->
   Product price:-<input type="number" class="form-control" placeholder="Enter the color" formControlName="price" name="Pro_color" ><br>
   Product category:-<input type="text" class="form-control" placeholder="Enter the category" formControlName="category" name="Pro_category" ><br>
 
@@ -12,18 +12,39 @@
     <div [formGroupName]="i">
         Image Url<input type="text" class="form-control " placeholder="Entrer url here" formControlName="urls">
         <span> <button class="btn btn-primary"*ngIf="i>0" class="btn btn-danger float-end mb-2" (click)="removingInput(i)"> remove </button> </span>
-
-
       </div>
   </div>
   <div class="addurl">
     <button class="btn btn-primary addurl " (click)="forNewInput()"> Add Url</button>
   </div>
-</div>
+
+
+<h1>Seller Details</h1>
+<div *ngFor="let group of addingsellerinput.controls; let i=index" formArrayName="sellerDet">
+    <div [formGroupName]="i">
+      <div class="d-flex mt-3">
+        <input type="text" class="form-control w-50 " placeholder="Seller Name" formControlName="SellerD" name="SellerD">
+        <input type="number" class="form-control w-50 ms-1" placeholder="Product Cost" formControlName="SellerCost" name="SellerCost">
+        <input type="text" class="form-control w-50 ms-1" placeholder="Enter Product Brand" formControlName="SellerProd" name="SellerProd">
+
+      </div>
+
+      </div>
+      <span> <button class="btn btn-primary"*ngIf="i>0" class="btn btn-danger float-end mb-2" (click)="SellerRemove(i)"> remove </button> </span>
+
+  </div>
+  <div class="addurl">
+    <button class="btn btn-primary addurl " (click)="sellerinput()"> Seller Details</button>
+  </div>
+
+  </div>
+
+
 
 
 
 </form>
+</div>
 <div class="addtoproduct">
 <button class="btn btn-primary" (click)="addproduct(testform)">Add to product</button>
 </div>
@@ -34,14 +55,14 @@
   <div class="container ">
     <div class="card-table">
       <div class="cart-product">
-        <table class="table table-responsive">
+        <table class="table table-bordered">
           <thead>
             <tr>
               <th>Sl.No</th>
               <th>Product Name</th>
               <th>Image</th>
               <th>Description</th>
-              <th>Quantity</th>
+              <!-- <th>Quantity</th> -->
               <th>price</th>
               <th>Total</th>
               <th>Action</th>
@@ -55,14 +76,14 @@
                 data-bs-toogle="modal" data-bs-target="#myCarousel" (click)="CarouselPopup(myCarousel,i)"> </td>
               <td style="width: 25%;" >{{pro.description}}</td>
               <!-- <td><button (click)="Increase(item,i)"><i class="fa-solid fa-plus"></i></button> -->
-                {{pro.quantity}}
+                <!-- {{pro.quantity}} -->
                 <!-- <button (click)="Decrease(item,i)"><i class="fa-solid fa-minus"></i></button></td> -->
               <td style="width: 12%;">{{[pro.price]}}</td>
               <td style="width: 12%;">{{[pro.quantity*pro.price]}}</td>
               <td>
                 <button class="btn btn-danger" (click)="removeitem(i)">DEL</button></td><br>
-                <td><button class="btn btn-success" (click)="addtocart(pro,i)">Cart</button></td>
 
+                <td><button class="btn btn-success " (click)="addtocart(pro,i)">Cart</button></td>
 
             </tr>
           </tbody>
@@ -71,74 +92,73 @@
     </div>
     <i class="fas fa-barcode"></i>
 
-  </div>
+</div>
 </ng-container>
 <!-- carousal -->
-<ng-template #myCarousel let-modal>
 
-<ngb-carousel *ngIf="carouselImgsArr">
+<ng-template #myCarousel let-modal >
+<ngb-carousel *ngIf="carouselImgsArr" >
 
-	<ng-template ngbSlide>
-    <!-- <div *ngFor="let image of carouselImgsArr"> -->
+
+  <ng-template ngbSlide  ngIf="show">
 		<div class="picsum-img-wrapper">
 			<img style="width: 100%;" src={{carouselImgsArr[0].urls}} alt="Random first slide" />
+      <div class="container seller" >
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>sl.no</th>
+              <th>Seller Name</th>
+              <th>Product Cost</th>
+              <th>Product Brand</th>
+              <th>Action</th>
+
+            </tr>
+            <tr *ngFor="let pro of sellerarray; let i =index">
+              <td>{{i+1}}</td>
+              <td>{{pro.SellerD}}</td>
+              <td>{{pro.SellerCost}}</td>
+              <td>{{pro.SellerProd}}</td>
+
+              <td class="d-flex"><button class="btn btn-primary" (click)="removeitem(i)">DEL</button>
+              <button class="btn btn-danger ms-1" (click)="addtocart(pro,i)">Cart</button></td>
+            </tr>
+          </thead>
+        </table>
+      </div>
   	</div>
-		<div class="carousel-caption">
-
-		</div>
-
 	</ng-template>
+
+
+<div class="carosaul">
   <ng-template ngbSlide *ngIf="carouselImgsArr[1]">
 
-  <div class="picsum-img-wrapper">
-    <img style="width: 100%;" src={{carouselImgsArr[1].urls}} alt="Random first slide" />
-  </div>
-  <div class="carousel-caption">
+    <div class="picsum-img-wrapper">
+      <img style="width: 100%;" src={{carouselImgsArr[1].urls}} alt="Random first slide" />
 
+     </div>
 
-  </div>
+  </ng-template>
+  <ng-template ngbSlide *ngIf="carouselImgsArr[2]">
 
-</ng-template>
-<ng-template ngbSlide *ngIf="carouselImgsArr[2]">
+    <div class="picsum-img-wrapper">
+      <img style="width: 100%;" src={{carouselImgsArr[2].urls}} alt="Random first slide" />
 
-  <div class="picsum-img-wrapper">
-    <img style="width: 100%;" src={{carouselImgsArr[2].urls}} alt="Random first slide" />
-  </div>
-  <div class="carousel-caption">
+    </div>
 
-  </div>
+  </ng-template>
+  <ng-template ngbSlide *ngIf="carouselImgsArr[3]">
 
-</ng-template>
-<ng-template ngbSlide *ngIf="carouselImgsArr[3]">
+    <div class="picsum-img-wrapper">
+      <img style="width: 100%;" src={{carouselImgsArr[3].urls}} alt="Random first slide" />
 
-  <div class="picsum-img-wrapper">
-    <img style="width: 100%;" src={{carouselImgsArr[3].urls}} alt="Random first slide" />
-  </div>
-  <div class="carousel-caption">
+    </div>
 
-  </div>
-
-</ng-template>
-
-  <!-- <ng-template ngbSlide>
-		<div class="picsum-img-wrapper">
-			<img style="width: 100%;" src={{carouselImgsArr[1].urls}} alt="Random first slide" />
-  	</div>
-		<div class="carousel-caption">
-			<h3>First slide label</h3>
-			<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-		</div>
-	</ng-template>
-  	<ng-template ngbSlide>
-		<div class="picsum-img-wrapper">
-			<img style="width: 100%;" src={{carouselImgsArr[2].urls}} alt="Random first slide" />
-  	</div>
-		<div class="carousel-caption">
-			<h3>First slide label</h3>
-			<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-		</div>
-	</ng-template> -->
+  </ng-template>
+</div>
 
 </ngb-carousel>
-</ng-template>
+<div class="popup">
+  <button type="button" class="btn btn-primary" (click)="closepopup()" >close</button>
 </div>
+</ng-template>

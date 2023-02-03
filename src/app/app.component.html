@@ -9,11 +9,39 @@
     <a routerLink="/login" routerLinkActive="routerActive" [hidden]="dontshowdetails">Login</a>
     <a routerLink="/signup" routerLinkActive="routerActive" [hidden]='dontshowdetails'>SignUp</a>
     <a routerLink="/moreProducts" routerLinkActive="routerActive" [hidden]="showdetails">MoreProducts</a>
-      <a routerLink="/cart" routerLinkActive="routerActive" [hidden]="showdetails">Cart</a>
-      <a routerLink="/logout" routerLinkActive="routerActive" [hidden]="showdetails">LogOut</a>
+    <a routerLink="/cart" routerLinkActive="routerActive" [hidden]="showdetails">Cart</a>
+    <a routerLink="/logout" routerLinkActive="routerActive" [hidden]="showdetails">LogOut</a>
+  </div>
+<div class="imageedit">
+  <div class=" profile " ngbDropdown display="dynamic" placement="bottom-end"  [hidden]="showdetails">
+
+    <div id="dropdownBasic1" ngbDropdownToggle tabindex="0" id="navbarDropdown3">
+      <img [src]="cropImgPreview" class="imagecrop" style="width: 60px; height: 60px;" />
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button ngbDropdownItem (click)="uploader.click()">
+          <input hidden type="file" #uploader (change)="fileChangeEvent($event)" (click)="ProfileImg(ProPic)"
+             data-bs-target="#ProPic" /> Edit Image</button>
+        <button ngbDropdownItem  >Edit profile</button>
+      </div>
+    </div>
 
   </div>
 </div>
-
+</div>
 <router-outlet></router-outlet>
+<!-- <input type="file" class="my-file-input" (change)="fileChangeEvent($event,popup1)" data-bs-toggle="modal" data-bs-target="#popup1" /> -->
+
+<ng-template #ProPic let-model class="modal-content" let-c="close">
+  <div>
+    <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="5 / 6"
+      format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()"
+      (loadImageFailed)="loadImageFailed()"></image-cropper>
+  </div>
+  <div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+	</div>
+
+</ng-template>
+
+
 

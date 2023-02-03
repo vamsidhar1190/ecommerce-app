@@ -10,6 +10,7 @@ export class CartService {
   search= new BehaviorSubject<string>(' ')
 
 
+
   constructor() { }
   getProducts(){
     return this.productList.asObservable();
@@ -24,6 +25,9 @@ export class CartService {
     this.productList.next(this.cartItemList)
     this.getTotalprice();
     console.log(this.priceArr);
+
+
+
 
   }
   getTotalprice(){

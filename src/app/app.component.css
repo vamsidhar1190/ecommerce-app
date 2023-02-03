@@ -13,18 +13,33 @@
 
 .components{
   display: flex;
-  justify-content: right;
-  gap: 50px;
-  padding-right: 60px;
-  /* margin-top: 10px; */
-  /* background-color: wheat; */
+  /* justify-content: space-evenly; */
+margin-left: 300px;
   text-decoration: none;
-
 }
+
 .components a{
   text-decoration: none;
+  margin-left: 20px;
+
 }
-/* a:hover{
-  color: blue;
-  font-size: 20px;
-} */
+.dropdown{
+  margin-left: -150px;
+}
+img{
+  border-radius: 50%;
+  /* width: 50%; */
+}
+.profile img{
+  height: 80px;
+  border-radius: 50%;
+  border: 2px ridge white;
+  background-color: #ffffff;
+}
+img .imagecrop{
+  width: 50%;
+  height: 50%;
+  /* margin-left: 200%; */
+}
+
+

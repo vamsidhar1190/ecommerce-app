@@ -17,7 +17,7 @@
 
 		<span>
 
-			<a href="https://www.google.com/" target="_blank" ><i class="fa fa-google" aria-hidden="true"></i> Login with Google</a>
+			<asl-google-signin-button (click)="show()"></asl-google-signin-button>
 		</span>
 		</div>
 	</div>
@@ -41,11 +41,7 @@
 			<br><br>
 
 		<div class="remember-me--forget-password">
-				<!-- Angular -->
-	<!-- <label>
-		<input type="checkbox" name="item" checked/>
-		<span class="text-checkbox">Remember me</span>
-	</label> -->
+
 			<p>forget password?</p>
 		</div>
 
@@ -55,19 +51,8 @@
 
 </div>
 <!-- partial -->
-<div class='bg-pink'>
-  <div class="container mt-5">
-    <h1>Google Login with Angular - ItSolutionStuff.com</h1>
-    <div class="row mt-5">
-      <div class="col-md-4 mt-2 m-auto ">
-          <button class="btn btn-danger" #loginRef>
-              Login with Google
-            </button>
-      </div>
-    </div>
-  </div>
 
-</div>
+
 
 </body>
 </html>

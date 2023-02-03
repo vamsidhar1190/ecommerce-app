@@ -1,6 +1,6 @@
 
 import { RouterModule, Routes } from '@angular/router';
-import { NgModule, Component } from '@angular/core';
+import { NgModule, Component, } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +19,17 @@ import { FilterPipe } from './filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MoreProductsComponent } from './more-products/more-products.component';
+import { ImageCropperModule } from "ngx-image-cropper";
+import { NgToastModule } from 'ng-angular-popup';
+import { AngularDropdownModule } from 'angular-dropdown';
+import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import {
+  GoogleLoginProvider
+} from '@abacritt/angularx-social-login';
+import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
+
+
+
 
 const route:Routes=[
   {
@@ -73,8 +84,32 @@ const route:Routes=[
     HttpClientModule,
     FormsModule,
     FontAwesomeModule,
+    ImageCropperModule,
+    NgToastModule,
+    SocialLoginModule,
+    MdbDropdownModule
+
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '345225537091-a3tcgbt1u9ubuu3pk10ggbp3gf0nhtbe.apps.googleusercontent.com'
+            )
+          },
+
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

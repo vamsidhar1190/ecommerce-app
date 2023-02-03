@@ -17,6 +17,7 @@ export class LogoutComponent  {
 // status=true
 callme(){
   sessionStorage.clear()
+  localStorage.removeItem('GoogleAuth')
   Swal.fire({
     icon:'success',
     title:'logoutsuccessfully'
