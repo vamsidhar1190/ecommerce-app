@@ -13,15 +13,12 @@
 
 .components{
   display: flex;
-  /* justify-content: space-evenly; */
 margin-left: 300px;
   text-decoration: none;
 }
-
 .components a{
   text-decoration: none;
   margin-left: 20px;
-
 }
 .dropdown{
   margin-left: -150px;
@@ -39,7 +36,6 @@ img{
 img .imagecrop{
   width: 50%;
   height: 50%;
-  /* margin-left: 200%; */
 }
 
 

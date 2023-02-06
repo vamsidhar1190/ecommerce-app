@@ -11,6 +11,8 @@
     <a routerLink="/moreProducts" routerLinkActive="routerActive" [hidden]="showdetails">MoreProducts</a>
     <a routerLink="/cart" routerLinkActive="routerActive" [hidden]="showdetails">Cart</a>
     <a routerLink="/logout" routerLinkActive="routerActive" [hidden]="showdetails">LogOut</a>
+    <!-- <a routerLink="/payment" routerLinkActive="routerActive" [hidden]="showdetails">payment</a> -->
+
   </div>
 <div class="imageedit">
   <div class=" profile " ngbDropdown display="dynamic" placement="bottom-end"  [hidden]="showdetails">
@@ -29,7 +31,6 @@
 </div>
 </div>
 <router-outlet></router-outlet>
-<!-- <input type="file" class="my-file-input" (change)="fileChangeEvent($event,popup1)" data-bs-toggle="modal" data-bs-target="#popup1" /> -->
 
 <ng-template #ProPic let-model class="modal-content" let-c="close">
   <div>

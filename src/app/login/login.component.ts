@@ -53,8 +53,6 @@ export class LoginComponent implements OnInit,DoCheck {
 
 
   ngOnInit(): void {
-
-
     this.authService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = (user != null);
@@ -68,8 +66,6 @@ export class LoginComponent implements OnInit,DoCheck {
       localStorage.setItem("GoogleAuth",JSON.stringify(this.Details));
       this.Router.navigate(['/products'])
     });
-
-
     this.getlocalstorage = localStorage.getItem('Signupdata');
     console.log(this.getlocalstorage);
     this.x = JSON.parse(this.getlocalstorage);
@@ -81,14 +77,16 @@ export class LoginComponent implements OnInit,DoCheck {
     console.log(this.login_usernames);
     console.log(this.login_pwds);
   }
-
-
   show() {
     for (let i = 0; i < this.login_usernames.length; i++) {
       if (this.regForm.get('login_uname')?.value == this.login_usernames[i]) {
-        console.log(this.login_pwds[i]);
+        // console.log(this.login_pwds[i]);
         this.passwords = this.login_pwds[i];
-        if (this.regForm.get('login_pwd')?.value == this.passwords) {
+        if (this.regForm.get('login_pwd')?.value === this.passwords) {
+          console.log(typeof(this.regForm.get('login_pwd')?.value));
+          console.log(typeof(this.passwords));
+
+
           console.log('password name exist');
           Swal.fire({
             icon: 'success',
@@ -98,17 +96,16 @@ export class LoginComponent implements OnInit,DoCheck {
           this.loginvalue=1
           sessionStorage.setItem('loginvalue',this.loginvalue)
           console.log(this.loginvalue);
-
-
+          break;
         }
         else {
           Swal.fire({
             icon: 'warning',
             title: 'Enter Correct password',
           });
-
         }
-      } else {
+      }
+      else {
         Swal.fire({
           icon: 'error',
           title: 'username incorrect',

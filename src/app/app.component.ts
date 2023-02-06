@@ -18,7 +18,6 @@ import { NgbModalConfig, } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AppComponent implements OnInit,DoCheck{
 
-
   title = 'commerceapp';
   lscart:any
   lsCartData:any
@@ -36,22 +35,16 @@ export class AppComponent implements OnInit,DoCheck{
   googleauthtication:any
   googlearray:any
 
-
   ngOnInit(): void {
   this.lscart=localStorage.getItem('cartItems')
   this.lsCartData=JSON.parse(this.lscart)
-
-
   }
-
   constructor (private CartService :CartService, private toast: NgToastService,config: NgbModalConfig,
      private modalService: NgbModal) {
     config.backdrop = 'static';
 		config.keyboard = false;
 
   }
-
-
   ngDoCheck(): void {
     this.loginValue=sessionStorage.getItem('loginvalue')
     this.googleauthtication=localStorage.getItem('GoogleAuth')
@@ -65,16 +58,7 @@ export class AppComponent implements OnInit,DoCheck{
       this.showdetails=true
       this.dontshowdetails=false
     }
-
-
-
-
-
-
   }
-
-
-
   search(event:any){
     this.searchTerm=(event.target as HTMLInputElement).value
     console.log(this.searchTerm);
@@ -93,9 +77,6 @@ fileChangeEvent(event: any): void {
 imageCropped(event: ImageCroppedEvent) {
   this.cropImgPreview = event.base64;
   console.log(event.base64);
-  // below am passing img url after croping n send for pro pic using product service n it can used app.component.ts file
-  // this.productService.yourProfilePic(event.base64)
-
 
 }
 imageLoaded() {
@@ -107,7 +88,6 @@ cropperReady() {
 loadImageFailed() {
   // show message
 }
-// Propic popup
 ProfileImg(proPic:any){
 this.modalService.open(proPic)
 }ismenuOpened:boolean=false;
@@ -117,17 +97,11 @@ togglemenu(){
 }
 clickedOutside():void{
   this.ismenuOpened=false
-
 }
-
-
-
-
 detailsPopUp(){
   console.log("hhhhhhhhh");
 
 }
-// imageupload:any="https://lh3.googleusercontent.com/a/AEdFTp53gfYlX56xj9AUpDiNZb9KWxKPYJ-lH3Ez38fPOA=s96-c"
 }
 
 

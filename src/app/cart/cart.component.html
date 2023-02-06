@@ -36,11 +36,13 @@
             <tr>
               <td colspan="4"></td>
               <td><button class="btn btn-primary" routerLink="/products">ShopNow</button></td>
-              <td><button class="btn btn-success">CheckOut</button></td>
+              <!-- <td><button class="btn btn-success">CheckOut</button></td> -->
+              <td><a routerLink="/payment" routerLinkActive="routerActive" ><button class="btn btn-primary" (click)="payment(totalprice)">Payment</button></a></td>
            </tr>
            <td class="right">Grand Total:{{totalprice}}</td>
           </tbody>
         </table>
+
       </div>
     </div>
     <i class="fas fa-barcode"></i>
@@ -59,8 +61,10 @@
         <h6>Add Item to it now</h6>
         <a routerLink="/products" routerLinkActive="routerActive"
           ><button class="btn btn-primary">Shop Now</button></a>
+
       </div>
     </div>
   </div>
 
 </ng-container>
+

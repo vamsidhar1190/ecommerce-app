@@ -8,13 +8,6 @@ import Swal from 'sweetalert2'
 })
 export class LogoutComponent  {
 
-//   clean:any
-//   closed(){
-//     this.clean(sessionStorage.clear())
-//     // console.log(close)
-//  }
-
-// status=true
 callme(){
   sessionStorage.clear()
   localStorage.removeItem('GoogleAuth')

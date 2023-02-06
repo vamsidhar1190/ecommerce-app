@@ -5,23 +5,16 @@
 .form{
     display: flex;
     width: 40%;
-    /* text-align: center; */
     justify-content: center;
     flex-direction: column;
-    /* margin-left: 5%; */
-    color: white;
-
+     color: white;
 }
 .form input{
     padding-bottom: 10px;
-    /* background-color: aqua; */
 }
-
 button{
     justify-content: center;
-    /* display: flex; */
-
-  }
+ }
 
  img:hover{
   transition: 0.3s ease-in-out ;

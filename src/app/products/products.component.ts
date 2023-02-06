@@ -37,7 +37,6 @@ ngOnInit(): void{
   this.cartservice.search.subscribe((val:any)=>{
     this.searchkey=val
   })
-
 }
 addtocart(item:any,index:number){
   // this.cartservice.addtocart(item);
@@ -46,7 +45,6 @@ addtocart(item:any,index:number){
   this.cartItem=this.productList[index]
   this.cartservice.addtocart(this.cartItem)
 }
-
 filter(category:string){
   this.filtercategory=this.productList
   .filter((a:any)=>{
@@ -54,7 +52,6 @@ filter(category:string){
       return a;
     }
   })
-
 }
 
 }

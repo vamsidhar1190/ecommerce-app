@@ -27,6 +27,7 @@ import {
   GoogleLoginProvider
 } from '@abacritt/angularx-social-login';
 import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
+import { PaymentComponent } from './payment/payment.component';
 
 
 
@@ -54,6 +55,9 @@ const route:Routes=[
     path:'moreProducts', component:MoreProductsComponent
   },
   {
+    path:'payment', component:PaymentComponent
+  },
+  {
     path:'**', component:HomeComponent
   }
 
@@ -72,6 +76,7 @@ const route:Routes=[
     CartComponent,
     FilterPipe,
     MoreProductsComponent,
+    PaymentComponent,
 
   ],
   imports: [

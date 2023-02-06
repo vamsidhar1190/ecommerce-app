@@ -25,10 +25,6 @@ export class CartService {
     this.productList.next(this.cartItemList)
     this.getTotalprice();
     console.log(this.priceArr);
-
-
-
-
   }
   getTotalprice(){
     let grandTotal=0;
@@ -46,15 +42,14 @@ export class CartService {
   removeAll(){
     this.cartItemList=[]
     this.productList.next(this.cartItemList)
-
   }
-
   mycart:any=[]
-
   addtocartAll(mydata:any){
     this.mycart.push(mydata)
   }
+  totalcost:number=0
 
-
-
+  paymentTotalCost(cost:number){
+    this.totalcost=cost
+  }
 }
