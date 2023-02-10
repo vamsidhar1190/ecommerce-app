@@ -1,15 +1,15 @@
 <div class="navbar">
   <div class="search">
-    <a routerLink="/home" routerLinkActive="routerActive" ><img src="../assets/ecommerce web.png" width="60px"></a>
-    <input type="text" placeholder="Search" [(ngModel)]="searchTerm" (keyup)='search($event)'>
+    <a routerLink="/home" routerLinkActive="routerActive" ><img src="../assets/11.jpg" width="70px"></a>
+    <input type="text" class="search" placeholder="Search" [(ngModel)]="searchTerm" (keyup)='search($event)'>
   </div>
   <div class="components">
-    <a routerLink="/home" routerLinkActive="routerActive" >Home</a>
+    <a routerLink="/home" routerLinkActive="routerActive">Home</a>
     <a routerLink="/products" routerLinkActive="routerActive" [hidden]="showdetails">Products</a>
     <a routerLink="/login" routerLinkActive="routerActive" [hidden]="dontshowdetails">Login</a>
     <a routerLink="/signup" routerLinkActive="routerActive" [hidden]='dontshowdetails'>SignUp</a>
     <a routerLink="/moreProducts" routerLinkActive="routerActive" [hidden]="showdetails">MoreProducts</a>
-    <a routerLink="/cart" routerLinkActive="routerActive" [hidden]="showdetails">Cart</a>
+    <a routerLink="/cart" routerLinkActive="routerActive" [hidden]="showdetails" >Cart <Span *ngIf="cartquantity">{{cartquantity}}</Span></a>
     <a routerLink="/logout" routerLinkActive="routerActive" [hidden]="showdetails">LogOut</a>
     <!-- <a routerLink="/payment" routerLinkActive="routerActive" [hidden]="showdetails">payment</a> -->
 
@@ -37,9 +37,11 @@
     <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="5 / 6"
       format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()"
       (loadImageFailed)="loadImageFailed()"></image-cropper>
+
   </div>
   <div class="modal-footer">
 		<button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+
 	</div>
 
 </ng-template>

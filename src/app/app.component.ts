@@ -35,6 +35,13 @@ export class AppComponent implements OnInit,DoCheck{
   googleauthtication:any
   googlearray:any
 
+
+
+
+
+  cartquantity:number=0
+  priceArr: any
+
   ngOnInit(): void {
   this.lscart=localStorage.getItem('cartItems')
   this.lsCartData=JSON.parse(this.lscart)
@@ -44,7 +51,14 @@ export class AppComponent implements OnInit,DoCheck{
     config.backdrop = 'static';
 		config.keyboard = false;
 
+
+
   }
+
+    //header cart
+
+
+
   ngDoCheck(): void {
     this.loginValue=sessionStorage.getItem('loginvalue')
     this.googleauthtication=localStorage.getItem('GoogleAuth')
@@ -58,6 +72,9 @@ export class AppComponent implements OnInit,DoCheck{
       this.showdetails=true
       this.dontshowdetails=false
     }
+   this.cartquantity= (this.CartService.priceArr).length
+   console.log(this.cartquantity);
+
   }
   search(event:any){
     this.searchTerm=(event.target as HTMLInputElement).value
@@ -65,6 +82,8 @@ export class AppComponent implements OnInit,DoCheck{
     this.CartService.search.next(this.searchTerm);
 
   }
+
+
 
 // Image crop and save
 
@@ -102,6 +121,7 @@ detailsPopUp(){
   console.log("hhhhhhhhh");
 
 }
+
 }
 
 

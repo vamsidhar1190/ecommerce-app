@@ -11,6 +11,14 @@ import { Component,OnInit,DoCheck } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit,DoCheck{
+  static productList // console.log(item);
+    () {
+      throw new Error('Method not implemented.');
+  }
+  static this: any;
+  static priceArr() {
+    throw new Error('Method not implemented.');
+  }
 
   product: any=[]
   grandTotal:any=0
@@ -20,6 +28,10 @@ export class CartComponent implements OnInit,DoCheck{
   cartArr=[]
   cartItemPrice:any=[]
   totalprice:number=0
+  static lsCartData: any;
+
+
+
 
   constructor (private cartService:CartService) {
     this.cartItemsArr=this.cartService.priceArr;
@@ -66,4 +78,6 @@ export class CartComponent implements OnInit,DoCheck{
     this.cartService.paymentTotalCost(costs)
 
   }
+
+
 }

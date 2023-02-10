@@ -25,4 +25,9 @@
   transform: scale(1.1);
 }
 
-
+.prod{
+  background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+}
+.images{
+  margin-left: 22px;
+}

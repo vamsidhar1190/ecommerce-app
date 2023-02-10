@@ -1,5 +1,6 @@
 .navbar{
-  background-color: wheat;
+  background: linear-gradient(to right, #33ccff 0%, #ff99cc 100%);
+
 
 }
 .search{
@@ -13,12 +14,20 @@
 
 .components{
   display: flex;
-margin-left: 300px;
+  margin-left: 300px;
   text-decoration: none;
+  font-weight: bolder;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: wheat;
+}
+.components :hover{
+  color: green;
 }
 .components a{
   text-decoration: none;
   margin-left: 20px;
+  color: white;
 }
 .dropdown{
   margin-left: -150px;
@@ -37,5 +46,13 @@ img .imagecrop{
   width: 50%;
   height: 50%;
 }
-
-
+span{
+ color: white;
+ background-color: black;
+}
+.search{
+  border-radius: 5px;
+  color: green;
+  margin: 2px;
+  border-color: red;
+}

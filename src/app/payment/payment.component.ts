@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component,} from '@angular/core';
 import { CartService } from './../cart.service';
-import { OnInit,DoCheck } from '@angular/core';
+import { OnInit,DoCheck, } from '@angular/core';
 
 
 
@@ -11,6 +11,8 @@ import { OnInit,DoCheck } from '@angular/core';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit,DoCheck {
+
+
 
 
 
