@@ -85,8 +85,6 @@ export class LoginComponent implements OnInit,DoCheck {
         if (this.regForm.get('login_pwd')?.value === this.passwords) {
           console.log(typeof(this.regForm.get('login_pwd')?.value));
           console.log(typeof(this.passwords));
-
-
           console.log('password name exist');
           Swal.fire({
             icon: 'success',

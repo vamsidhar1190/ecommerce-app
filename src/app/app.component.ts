@@ -83,8 +83,6 @@ export class AppComponent implements OnInit,DoCheck{
 
   }
 
-
-
 // Image crop and save
 
 imageChangedEvent: any = '';
@@ -96,7 +94,6 @@ fileChangeEvent(event: any): void {
 imageCropped(event: ImageCroppedEvent) {
   this.cropImgPreview = event.base64;
   console.log(event.base64);
-
 }
 imageLoaded() {
   // show cropper
@@ -119,7 +116,6 @@ clickedOutside():void{
 }
 detailsPopUp(){
   console.log("hhhhhhhhh");
-
 }
 
 }

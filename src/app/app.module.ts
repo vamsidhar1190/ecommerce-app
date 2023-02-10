@@ -93,7 +93,6 @@ const route:Routes=[
     NgToastModule,
     SocialLoginModule,
     MdbDropdownModule
-
   ],
   providers: [
     {
